@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturation - En cours de développement</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="facturation.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Factures</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                    <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section principale (masquée par le filtre gris) -->
+    <div class="facturation-content">
+        <!-- Tout le contenu de la facturation ici -->
+    </div>
+
+    <!-- Filtre gris avec le message d'attente -->
+    <div class="developpement-overlay">
+        <div class="developpement-message">
+            <h2>En cours de développement</h2>
+            <p>Merci de patienter pendant que nous continuons à développer cette fonctionnalité.</p>
+        </div>
+    </div>
+
+    <script src="facturation.js"></script>
+</body>
+</html>

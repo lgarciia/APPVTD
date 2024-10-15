@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script> <!-- SortableJS -->
+</head>
+<!-- Modale pour afficher le montant encaissé et à venir -->
+<div id="montantModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Montants</h2>
+        <p id="montantEncaisse">Montant encaissé : <span id="montantEncaisseValue">0.00 €</span></p>
+        <p id="montantAVenir">Montant à venir : <span id="montantAVenirValue">0.00 €</span></p>
+    </div>
+</div>
+
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Dashboard</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+            <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+
+
+            
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+    <!-- Barre d'indicateurs -->
+    <section class="indicators-bar">
+        <div class="indicator">
+            <h3>Chiffre d'affaires</h3>
+            <span class="value" id="ca-value"></span>
+            <span class="info-icon" data-tooltip="Chiffre d'affaires généré.">+</span>
+        </div>
+
+        <div class="indicator">
+            <h3>Nombre de vente</h3>
+            <span class="value" id="vente-value"></span>
+            <span class="info-icon" data-tooltip="Total des ventes effectuées sur la période.">+</span>
+        </div>
+
+        <div class="indicator">
+            <h3>En cours de livraison</h3>
+            <span class="value" id="livraison-value"></span>
+            <span class="info-icon" data-tooltip="Nombre de commandes actuellement en cours de livraison.">+</span>
+            <div id="tooltip-content-livraison" class="tooltip-content"></div>
+        </div>
+
+        <div class="indicator">
+            <h3>Investissement global</h3>
+            <span class="value" id="investissement-value"></span>
+            <span class="info-icon" data-tooltip="Montant total des investissements réalisés.">+</span>
+        </div>
+
+        <div class="indicator">
+            <h3>Taux de marge moyen</h3>
+            <span class="value" id="marge-value"></span>
+            <span class="info-icon" data-tooltip="Pourcentage de marge moyen sur les ventes.">+</span>
+        </div>
+    </section>
+
+    <!-- Section du Tableau de Bord -->
+    <section class="dashboard-section">
+        <h2>Analyse des Performances</h2>
+        <!-- Conteneur des cards déplaçables -->
+        <div id="dashboard-content" class="dashboard-content">
+            <!-- Card 1 - Chiffre d'affaires (moyenne card) -->
+            <div class="chart-box small-card" data-id="card-1">
+                <h3>Chiffre d'affaires par Mois</h3>
+                <canvas id="chiffreAffairesChart"></canvas>
+            </div>
+
+            <!-- Card 2 - Évolution des ventes (moyenne card) -->
+            <div class="chart-box small-card" data-id="card-2">
+                <h3>Évolution des Ventes</h3>
+                <canvas id="ventesProduitChart"></canvas>
+            </div>
+
+            <!-- Card 3 - Stocks disponibles (petite card) -->
+            <div class="chart-box small-card" data-id="card-3">
+                <h3>Historique des Stocks</h3>
+                <canvas id="stockChart"></canvas>
+            </div>
+
+            <!-- Card 4 - Taux de marge par produit -->
+            <div class="chart-box small-card" data-id="card-4">
+                <h3>Taux de Marge par Produit</h3>
+                <canvas id="tauxMargeChart"></canvas>
+            </div>
+
+            <!-- Card 5 - Investissement par mois -->
+            <div class="chart-box small-card" data-id="card-5">
+                <h3>Investissement par Mois</h3>
+                <canvas id="investissementChart"></canvas>
+            </div>
+
+            <!-- Card 6 -  -->
+            <div class="chart-box small-card" data-id="card-6">
+                <h3>Évolution des Ventes</h3>
+                <canvas id="evolutionVentesChart"></canvas>
+            </div>
+            <div class="chart-box small-card" data-id="card-7">
+                <h3>Bénéfice Net par Mois</h3>
+                <canvas id="beneficeNetChart"></canvas>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

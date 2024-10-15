@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="option.css"> <!-- Lien vers le fichier CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script> <!-- Bibliothèque SheetJS -->
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Ventes</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                    <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html">
+                    <img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <h2>Options</h2>
+
+    <!-- Section pour ajouter des options -->
+    <div class="options-container">
+        <div class="option-card">
+            <h3>Lieu de Stockage</h3>
+            <input type="text" id="nouveau-lieu" placeholder="Ajouter un lieu" />
+            <button class="ajouter-option" data-type="lieu">Ajouter</button>
+            <ul class="option-list" id="liste-lieux"></ul>
+        </div>
+
+        <div class="option-card">
+            <h3>Fournisseur</h3>
+            <input type="text" id="nouveau-fournisseur" placeholder="Ajouter un fournisseur" />
+            <button class="ajouter-option" data-type="fournisseur">Ajouter</button>
+            <ul class="option-list" id="liste-fournisseurs"></ul>
+        </div>
+
+        <div class="option-card">
+            <h3>Mode de Paiement</h3>
+            <input type="text" id="nouveau-paiement" placeholder="Ajouter un mode de paiement" />
+            <button class="ajouter-option" data-type="paiement">Ajouter</button>
+            <ul class="option-list" id="liste-paiements"></ul>
+        </div>
+
+        <div class="option-card">
+            <h3>Acheteur</h3>
+            <input type="text" id="nouveau-acteur" placeholder="Ajouter un acheteur" />
+            <button class="ajouter-option" data-type="acteur">Ajouter</button>
+            <ul class="option-list" id="liste-acteurs"></ul>
+        </div>
+
+        <div class="option-card">
+            <h3>Transporteur</h3>
+            <input type="text" id="nouveau-transporteur" placeholder="Ajouter un transporteur" />
+            <button class="ajouter-option" data-type="transporteur">Ajouter</button>
+            <ul class="option-list" id="liste-transporteurs"></ul>
+        </div>
+    </div>
+    <div class="vinted-button-container">
+        <a href="https://www.vinted.fr/" target="_blank" class="vinted-button">Mon Vinted</a>
+    </div>
+    <p id="export-explanation">Cliquez sur le bouton ci-dessous pour extraire toutes les données sous format Excel.</p>
+    <button id="export-data">Exporter les données</button>
+
+    <script src="option.js"></script> <!-- Lien vers le fichier JavaScript -->
+</body>
+</html>

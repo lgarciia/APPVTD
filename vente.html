@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventes - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="vente.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Ventes</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                    <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bouton pour déployer ou masquer le formulaire -->
+    <div class="form-toggle-container">
+        <h2></h2>
+        <button id="form-toggle-btn" class="toggle-btn">&#9660; Afficher le formulaire</button>
+    </div>
+
+      <!-- Section de formulaire de vente -->
+      <section class="vente-section" id="vente-section" style="display: none;">
+        <h2></h2>
+        <div class="card">
+            <form id="vente-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateVente">Date de la Vente</label>
+                        <input type="date" id="dateVente" required> <!-- Champ de date ajouté -->
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroStock">Numéro d'article</label>
+                        <select id="numeroStock"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomModele">Modèle</label>
+                        <input type="text" id="nomModele" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="reference">Référence</label>
+                        <input type="text" id="reference" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="prixAchat">Prix d'achat</label>
+                        <input type="text" id="prixAchat" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="acheteur">Nom de l'acheteur</label>
+                        <select id="acheteur" required>
+                            <option value="">Sélectionnez un acheteur</option>
+                            <!-- Options d'acheteurs viendront ici -->
+                        </select>
+                       
+                    </div>
+                    <div class="form-group">
+                        <label for="disponibilite">Disponibilité</label>
+                        <input type="text" id="disponibilite" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prixVente">Prix de vente</label>
+                        <input type="number" id="prixVente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="suivi">Lien de Suivi</label>
+                        <input type="text" id="suivi">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paiement">Mode de paiement</label>
+                        <select id="paiement" required>
+                            <option value="">Sélectionnez un mode de paiement</option>
+                            <!-- Options de paiement viendront ici -->
+                        </select>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="transporteur">Transporteur</label>
+                        <select id="transporteur" required>
+                            <option value="">Sélectionnez un transporteur</option>
+                            <!-- Options de transporteur viendront ici -->
+                        </select>
+                       
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="emballe">Emballé avec carton ?</label>
+                        <select id="emballe">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui</option>
+                        </select>
+                        <small id="cmup-msg" style="display: none;">CMUP Impact : <span id="cmup-value">0.00 €</span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="paiementRecu">Paiement reçu ?</label>
+                        <select id="paiementRecu">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expedie">Produit expédié ?</label>
+                        <select id="expedie">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="ajouter-vente">Ajouter Vente</button>
+                <small id="benefice-msg">Marge estimée : <span id="benefice-value">0.00 €</span></small>
+            </form>
+        </div>
+    </section>
+
+    <!-- Historique des ventes -->
+    <section class="historique-section">
+        <h2 id="historique-ventes-title">Historique des Ventes</h2>
+
+        <!-- Pop-up moderne cachée par défaut -->
+        <div id="popup" class="popup-content">
+            <p><strong>Légende :</strong></p>
+            <p><span style="color: #d5f5e3;">■</span> Paiement reçu.</p>
+
+            <p><span style="color: gray;">■</span> Paiement ou expédition en attente. Le chiffre d'affaires associé ne remonte pas dans les outils.</p>
+
+        </div>
+        <table id="historique-ventes">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Modèle</th>
+                    <th>Référence</th> <!-- Nouvelle colonne pour la référence -->
+                    <th>Prix d'Achat</th>
+                    <th>Prix de Vente</th>
+                    <th>Nom de l'Acheteur</th>
+                    <th>Transporteur</th>
+                    <th>Mode de Paiement</th><!-- Nouvelle colonne pour le mode de paiement -->
+                    <th>Lien de Suivi</th><!-- Nouvelle colonne pour le lien de suivi -->
+                    <th>Emballé avec Carton ?</th> <!-- Nouvelle colonne pour Emballé avec carton -->
+                    <th>Date</th>
+                    <th>Paiement Reçu</th>
+                    <th>Expédié</th>
+                    <th>Marge</th>
+                    <th>Taux de Marge (%)</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Totaux</td>
+                    <td id="totalPrixAchat">0.00 €</td>
+                    <td id="totalPrixVente">0.00 €</td>
+                    <td colspan="8"></td> <!-- Colonnes intermédiaires que nous n'additionnons pas -->
+                    <td id="totalMarge">0.00 €</td>
+                    <td id="totalTauxMarge">0.00%</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+            
+        </table>
+    </section>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let stocks = JSON.parse(localStorage.getItem('stocks')) || [];
+
+            // Remplir le numéro d'article à partir des stocks
+            const numeroStockSelect = document.getElementById('numeroStock');
+            stocks.forEach(stock => {
+                const option = document.createElement('option');
+                option.value = stock.id;
+                option.textContent = stock.id;
+                numeroStockSelect.appendChild(option);
+            });
+
+            // Mettre à jour le formulaire en fonction de l'article sélectionné
+            const mettreAJourFormulaire = () => {
+                const articleId = parseInt(numeroStockSelect.value);
+                const article = stocks.find(stock => stock.id === articleId);
+                if (article) {
+                    document.getElementById('nomModele').value = article.modele;
+                    document.getElementById('reference').value = article.reference;
+                    document.getElementById('prixAchat').value = article.prix;
+                    document.getElementById('disponibilite').value = article.disponibilite;
+                }
+            };
+
+            // Événement pour mettre à jour le formulaire lorsque l'article est sélectionné
+            numeroStockSelect.addEventListener('change', mettreAJourFormulaire);
+
+            // Événement pour le bouton de remplissage automatique
+            document.getElementById('remplir-automatiquement').addEventListener('click', () => {
+                const randomStockId = stocks[Math.floor(Math.random() * stocks.length)].id; // Prendre un ID au hasard des stocks
+                numeroStockSelect.value = randomStockId; // Remplir le numéro de stock
+                mettreAJourFormulaire(); // Mettre à jour le formulaire avec les détails de l'article
+                document.getElementById('dateVente').value = getRandomDateIn2024(); // Remplir avec une date aléatoire en 2024
+                document.getElementById('acheteur').value = 'Acheteur ' + randomStockId; // Exemple de nom d'acheteur
+                document.getElementById('prixVente').value = (Math.random() * 100 + 50).toFixed(2); // Prix de vente aléatoire
+                document.getElementById('suivi').value = 'http://example.com/track/' + randomStockId; // Lien de suivi exemple
+                document.getElementById('paiement').value = Math.random() > 0.5 ? 'Carte' : 'Espèce'; // Mode de paiement aléatoire
+                document.getElementById('transporteur').value = 'Transporteur ' + randomStockId; // Exemple de transporteur
+            });
+
+            // Fonction pour obtenir une date aléatoire dans l'année 2024
+            function getRandomDateIn2024() {
+                const start = new Date('2024-01-01');
+                const end = new Date('2024-12-31');
+                const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+                return randomDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+            }
+        });
+    </script>
+    <script src="vente.js"></script>
+</body>
+</html>

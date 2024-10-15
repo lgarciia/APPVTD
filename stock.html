@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="stock.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Stocks</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                   <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inventaire des stocks -->
+    <section class="stock-section">
+        <h2>Inventaire des Stocks</h2>
+        <table id="stock-table">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Modèle</th>
+                    <th>Référence</th>
+                    <th>Taille</th>
+                    <th>Lieu</th>
+                    <th>Prix</th>
+                    <th>Fournisseur</th>
+                    <th>Statut</th>
+                    <th>Date</th>
+                    <th>Disponibilité</th> <!-- Nouvelle colonne -->
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="stock.js"></script>
+</body>
+</html>

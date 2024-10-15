@@ -1,0 +1,150 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-image: url('C:/Users/lucas/OneDrive/Bureau/CODE HTML/APP SNKRS/Untitled design.png'); /* Chemin de l'image */
+    background-size: cover; /* Remplit tout l'arrière-plan */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite la répétition de l'image */
+    color: #333; /* Text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Container for the card */
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* White background for the card with some transparency */
+    padding: 40px;
+    border-radius: 20px; /* Rounded corners for the card */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Softer shadow for a floating effect */
+    width: 100%;
+    max-width: 700px; /* Augmentation de la largeur maximale */
+    text-align: center;
+    opacity: 0; /* Initial opacity for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+/* Animation class */
+.fade-in {
+    opacity: 1; /* Final opacity */
+    transform: translateY(0); /* Final position */
+}
+
+/* Headline */
+.card h1 {
+    font-size: 32px; /* Title size */
+    color: #000; /* Noir pour le titre */
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.card p {
+    font-size: 16px; /* Subtitle size */
+    color: #666; /* Lighter gray for subtitle */
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.card label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    color: #666; /* Lighter gray for labels */
+    margin-bottom: 8px;
+}
+
+/* Input styling */
+.card input {
+    width: 100%;
+    padding: 14px; /* Increased padding */
+    margin-bottom: 20px;
+    border: 1px solid #d2d2d7; /* Light border */
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Light background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Input focus state */
+.card input:focus {
+    border-color: #000; /* Noir border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Light shadow on focus */
+}
+
+/* Button styling */
+.card button {
+    background-color: #000; /* Noir pour le bouton */
+    color: white;
+    padding: 14px; /* Increased padding */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    width: 100%;
+}
+
+/* Button hover state */
+.card button:hover {
+    background-color: #444; /* Darker black on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Error message styling */
+#error-message {
+    color: #ff3b30; /* Red for error messages */
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Forgot password link */
+.forgot-password {
+    color: #6e6e73; /* Color for the forgot password link */
+    font-size: 14px;
+    margin-top: 15px;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Signup link styling */
+.signup {
+    color: #000; /* Noir pour le signup link */
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px; /* Reduced padding on small screens */
+    }
+
+    .card input, .card button {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .card h1 {
+        font-size: 28px; /* Smaller title size */
+    }
+
+    .card p {
+        font-size: 12px; /* Smaller subtitle size */
+    }
+}
+
+.welcome-message::before,
+.welcome-message::after {
+    content: '  '; /* Un espace invisible */
+    display: inline-block;
+    width: 40px; /* Ajustez la largeur pour l'espace souhaité */
+}

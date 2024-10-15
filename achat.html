@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achats - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="achat.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Achats</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                    <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section de formulaire d'achat avec bouton de déploiement -->
+    <div class="form-toggle-container">
+        <h2></h2>
+        <button id="form-toggle-btn" class="toggle-btn">&#9660; Afficher le formulaire</button>
+    </div>
+
+    <!-- Formulaire d'ajout d'achat (déployable) -->
+    <section class="purchase-section" style="display: none;">
+        <div class="card">
+            <form id="achat-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="modele">Modèle</label>
+                        <input type="text" id="modele" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reference">Référence</label>
+                        <input type="text" id="reference" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taille">Taille</label>
+                        <select id="taille" required>
+                            <option value="">Sélectionnez une taille</option>
+                            <option value="50">50</option>
+                            <option value="49">49</option>
+                            <option value="48">48</option>
+                            <option value="47">47</option>
+                            <option value="46">46</option>
+                            <option value="45">45</option>
+                            <option value="44">44</option>
+                            <option value="43">43</option>
+                            <option value="42">42</option>
+                            <option value="41">41</option>
+                            <option value="40">40</option>
+                            <option value="39">39</option>
+                            <option value="38">38</option>
+                            <option value="37">37</option>
+                            <option value="36">36</option>
+                            <option value="35">35</option>
+                            <option value="34">34</option>
+                            <option value="33">33</option>
+                            <option value="32">32</option>
+                            <option value="31">31</option>
+                            <option value="30">30</option>
+                            <option value="29">29</option>
+                            <option value="28">28</option>
+                            <option value="27">27</option>
+                            <option value="26">26</option>
+                            <option value="25">25</option>
+                            <option value="24">24</option>
+                            <option value="23">23</option>
+                            <option value="22">22</option>
+                            <option value="21">21</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lieu">Lieu de Stockage</label>
+                        <select id="lieu" required>
+                        <option value="">Sélectionnez un lieu</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prix">Prix</label>
+                        <input type="number" id="prix" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fournisseur">Fournisseur</label>
+                        <select id="fournisseur" required>
+                            <option value="">Sélectionnez un fournisseur</option> <!-- Option par défaut -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="paiement">Mode de Paiement</label>
+        <select id="paiement" required>
+            <option value="">Sélectionnez un mode de paiement</option> <!-- Option par défaut -->
+        </select>
+    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="suivi">Lien de Suivi</label>
+                        <input type="text" id="suivi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commande">N° Commande</label>
+                        <input type="text" id="commande" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="statut">Statut</label>
+                        <select id="statut">
+                            <option value="non_recu">Non Reçu</option>
+                            <option value="en_cours">En Cours</option>
+                            <option value="recu">Reçu</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="ajouter-achat">Ajouter Achat</button>
+            </form>
+            <button id="remplir-automatiquement">Remplir Automatiquement</button> <!-- Nouveau bouton a supprimer c'est pour l'automatisme -->
+        </div>
+    </section>
+
+    <!-- Historique des achats -->
+    <section class="historique-section">
+        <h2>Historique des Achats</h2>
+        <table id="historique-achats">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Modèle</th>
+                    <th>Référence</th>
+                    <th>Taille</th>
+                    <th>Lieu</th>
+                    <th>Prix</th>
+                    <th>Fournisseur</th>
+                    <th>Mode de Paiement</th>
+                    <th>Lien de Suivi</th>
+                    <th>N° Commande</th>
+                    <th>Statut</th>
+                    <th>Date</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Totaux</td>
+                    <td id="total-prix">0</td> <!-- Cellule pour le total des prix -->
+                    <td colspan="7"></td> <!-- Colspan pour occuper les autres cellules -->
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <script src="achat.js"></script>
+
+
+    <!-- Nouveau bouton a supprimer c'est pour l'automatisme -->
+    <script>
+        document.getElementById('remplir-automatiquement').addEventListener('click', () => {
+            const randomId = Math.floor(Math.random() * 1000); // Génère un ID aléatoire pour l'exemple
+            const exampleData = {
+                date: getRandomDateIn2024(), // Date aléatoire en 2024
+                modele: 'Modèle ' + randomId,
+                reference: 'REF' + randomId,
+                taille: Math.floor(Math.random() * 10 + 40), // Taille entre 40 et 49
+                lieu: 'Stockage ' + randomId,
+                prix: (Math.random() * 100 + 20).toFixed(2), // Prix aléatoire entre 20 et 120
+                fournisseur: 'Fournisseur ' + randomId,
+                paiement: Math.random() > 0.5 ? 'Carte' : 'Espèce', // Mode de paiement aléatoire
+                suivi: 'http://example.com/track/' + randomId,
+                commande: 'CMD' + randomId,
+                statut: Math.random() > 0.5 ? 'Non Reçu' : 'Reçu' // Statut aléatoire
+            };
+
+            // Remplir le formulaire avec des données d'exemple
+            document.getElementById('date').value = exampleData.date;
+            document.getElementById('modele').value = exampleData.modele;
+            document.getElementById('reference').value = exampleData.reference;
+            document.getElementById('taille').value = exampleData.taille;
+            document.getElementById('lieu').value = exampleData.lieu;
+            document.getElementById('prix').value = exampleData.prix;
+            document.getElementById('fournisseur').value = exampleData.fournisseur;
+            document.getElementById('paiement').value = exampleData.paiement;
+            document.getElementById('suivi').value = exampleData.suivi;
+            document.getElementById('commande').value = exampleData.commande;
+            document.getElementById('statut').value = exampleData.statut;
+        });
+
+        // Fonction pour obtenir une date aléatoire dans l'année 2024
+        function getRandomDateIn2024() {
+            const start = new Date('2024-01-01');
+            const end = new Date('2024-12-31');
+            const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            return randomDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+        }
+    </script>
+   <!-- Nouveau bouton a supprimer c'est pour l'automatisme -->
+
+   
+</body>
+</html>

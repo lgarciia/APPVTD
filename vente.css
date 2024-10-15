@@ -1,0 +1,314 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right .btn {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-right .btn:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+/* Formulaire */
+.vente-section h2 {
+    text-align: center;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 0.9em;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8em;
+}
+
+#benefice-msg {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: green;
+}
+
+/* Boutons */
+button {
+    background-color: #000; /* Noir intense pour le bouton */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #444; /* Un noir légèrement plus clair pour l'effet hover */
+}
+
+/* Historique des ventes */
+.historique-section {
+    margin: 40px auto;
+    max-width: 95%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* Ensure fixed width for all columns */
+    border-radius: 8px; /* Coins arrondis pour le tableau */
+    overflow: hidden; /* Masquer les débordements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce autour du tableau */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th {
+    background-color: #f0f0f2;
+    font-weight: bold;
+}
+
+/* Alternance des couleurs de ligne dans le tableau */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* Statuts d'expédition et de paiement */
+td[data-expedition="non"], td[data-paiement="non"] {
+    background-color: #e74c3c; /* Rouge */
+    color: white;
+}
+
+td[data-expedition="oui"], td[data-paiement="oui"] {
+    background-color: #2ecc71; /* Vert */
+    color: white;
+}
+
+/* Lien de suivi tronqué dans une cellule */
+.link-truncate {
+    display: inline-block;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link-truncate:hover::after {
+    content: attr(data-full-url);
+    position: absolute;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.supprimer {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.supprimer:hover {
+    text-decoration: underline;
+}
+
+.settings img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.toggle-btn {
+    background-color: #000; /* Couleur de fond noire */
+    color: white; /* Texte en blanc */
+    padding: 6px 14px; /* Réduit le rembourrage pour diminuer la taille */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Garde les coins arrondis */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    font-size: 0.8em; /* Réduit la taille de la police */
+    transition: background-color 0.3s ease; /* Animation au survol */
+}
+
+.toggle-btn:hover {
+    background-color: #444; /* Un noir légèrement plus clair pour l'effet hover */
+}
+
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Cache le contenu par défaut */
+    position: absolute;
+    background-color: white;
+    min-width: 75px; /* Largeur légèrement augmentée pour plus de classe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+    border-radius: 4px; /* Coins arrondis */
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
+    opacity: 0; /* Début transparent */
+    visibility: hidden; /* Invisible au départ */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le contenu au survol */
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Rendre visible */
+}
+
+.dropdown-content a {
+    color: #333; /* Couleur du texte */
+    padding: 5px 8px; /* Espacement délicat pour une apparence plus fine */
+    text-decoration: none;
+    display: block;
+    font-size: 0.85em; /* Taille de police réduite */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Couleur de fond douce au survol */
+    color: #000; /* Couleur du texte au survol */
+    border-left: 2px solid #000; /* Ligne de couleur à gauche pour indiquer le survol */
+}
+
+/* Ajout d'un effet de transition pour l'apparition de la dropdown */
+.dropdown:hover .dropdown-content {
+    animation: slideIn 0.3s forwards; /* Animation d'apparition */
+}
+
+/* Animation pour la dropdown */
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Style de la pop-up dans un style plus moderne */
+.popup-content {
+    display: none; /* Cachée par défaut */
+    position: absolute;
+    top: 135px; /* Ajustez selon la position par rapport au titre */
+    left: calc(19% + 15px); /* À droite du titre avec un petit espace */
+    background-color: #f9f9f9; /* Fond clair pour un style moderne */
+    color: #333; /* Texte sombre pour un bon contraste */
+    padding: 12px 15px;
+    border-radius: 12px; /* Bordures arrondies pour un look moderne */
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet en relief */
+    z-index: 1000;
+    font-size: 14px;
+    min-width: 180px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    white-space: nowrap;
+    text-align: left;
+    transition: opacity 0.3s ease-in-out; /* Transition douce pour l'affichage */
+    opacity: 0;
+}
+
+/* Transition pour faire apparaître la pop-up */
+.popup-content.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Ajout d'une petite flèche vers la gauche de la pop-up */
+.popup-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #f9f9f9 transparent transparent; /* Flèche de la couleur de fond */
+}

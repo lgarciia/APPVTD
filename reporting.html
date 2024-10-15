@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="reporting.css"> <!-- Lien vers le fichier CSS -->
+    
+    <!-- Inclure jsPDF -->
+    
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Reporting Activité Mensuel</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                    <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="reporting-container">
+        <h2>Reporting Mensuel</h2>
+
+        <div class="filter-container">
+            <div class="year-select">
+                <label for="year">Sélectionnez l'année:</label>
+                <select id="year">
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="month-buttons">
+            <button class="month-btn">Janvier</button>
+            <button class="month-btn">Février</button>
+            <button class="month-btn">Mars</button>
+            <button class="month-btn">Avril</button>
+            <button class="month-btn">Mai</button>
+            <button class="month-btn">Juin</button>
+            <button class="month-btn">Juillet</button>
+            <button class="month-btn">Août</button>
+            <button class="month-btn">Septembre</button>
+            <button class="month-btn">Octobre</button>
+            <button class="month-btn">Novembre</button>
+            <button class="month-btn">Décembre</button>
+        </div>
+
+        <!-- Tableau de Reporting -->
+        <section class="reporting-table">
+            <h3 style="display: flex; align-items: center; justify-content: space-between;">
+                Données de Reporting 
+                <span id="save-pdf" style="cursor: pointer; color: blue; font-size: 20px; margin-left: 10px;">💾</span>
+            </h3>
+            <table id="reporting-data">
+                <thead>
+                    <tr>
+                        <th>N° de Vente</th>
+                        <th>Modèle</th>
+                        <th>Référence</th>
+                        <th>Nom de l'Acheteur</th>
+                        <th>Prix d'Achat</th>
+                        <th>Prix de Vente</th>
+                        <th>Marge (€)</th>
+                        <th>Marge (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les données seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="reporting.js"></script> <!-- Lien vers votre fichier JavaScript -->
+</body>
+</html>

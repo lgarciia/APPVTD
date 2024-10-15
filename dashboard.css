@@ -1,0 +1,359 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right .btn {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-right .btn:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.settings img {
+    width: 25px;
+    cursor: pointer;
+}
+
+/* Barre d'indicateurs */
+.indicators-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #f5f5f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.indicator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 18%;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.indicator:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.indicator h3 {
+    font-size: 1.2em;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.indicator .value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0070c9;
+    position: relative;
+}
+
+/* Nouveau style pour les pop-ups avec une animation de glissement */
+.info-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* L'icône "+" change de couleur au survol */
+.info-icon:hover {
+    color: #0070c9;
+}
+
+/* Style de la pop-up */
+.info-icon:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.85em;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideUp 0.3s forwards ease-in-out;
+    z-index: 999;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tooltip-content {
+    display: none;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.85em;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 999;
+    top: -30px;
+    right: 0;
+}
+
+.value:hover + .tooltip-content {
+    display: block;
+}
+
+/* Section du tableau de bord */
+.dashboard-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.dashboard-section h2 {
+    color: #1d1d1f;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Conteneur des graphiques */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Style général des cards */
+.chart-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Uniformisation des cards */
+.small-card {
+    grid-column: span 1;
+}
+
+.chart-box h3 {
+    margin-bottom: 20px;
+    color: #1d1d1f;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+/* Styles de la modale */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste à la même position */
+    z-index: 1; /* Au-dessus de tout le reste */
+    left: 0;
+    top: 0;
+    width: 100%; /* Plein écran */
+    height: 100%; /* Plein écran */
+    overflow: auto; /* Si besoin, défilement */
+    background-color: rgba(0, 0, 0, 0.6); /* Fond noir avec opacité légèrement plus forte pour un effet plus sobre */
+}
+
+.modal-content {
+    background-color: #ffffff; /* Fond blanc pur */
+    margin: 10% auto; /* 10% du haut et centré */
+    padding: 30px;
+    border-radius: 8px; /* Coins arrondis pour un aspect plus doux */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    max-width: 500px; /* Largeur maximale de 500px */
+    animation: fadeIn 0.3s; /* Animation d'apparition */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.close {
+    color: #aaa;
+    float: right; /* Aligné à droite */
+    font-size: 24px; /* Taille réduite pour un style plus subtil */
+    font-weight: bold;
+    transition: color 0.2s; /* Transition douce pour le changement de couleur */
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Changement de couleur au survol */
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Styles pour le montant cliquable */
+.value {
+    color: #0070c9; /* Couleur de texte bleue pour indiquer un lien */
+    cursor: pointer; /* Changement du curseur pour indiquer qu'il est cliquable */
+    transition: color 0.2s; /* Transition douce pour le changement de couleur */
+}
+
+.value:hover {
+    color: #005bb5; /* Changement de couleur au survol pour indiquer l'interaction */
+    
+}
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #f0f0f0; /* Change la couleur au survol */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le contenu au survol */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Change la couleur au survol */
+}
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Cache le contenu par défaut */
+    position: absolute;
+    background-color: white;
+    min-width: 75px; /* Largeur légèrement augmentée pour plus de classe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+    border-radius: 4px; /* Coins arrondis */
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
+    opacity: 0; /* Début transparent */
+    visibility: hidden; /* Invisible au départ */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le contenu au survol */
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Rendre visible */
+}
+
+.dropdown-content a {
+    color: #333; /* Couleur du texte */
+    padding: 5px 8px; /* Espacement délicat pour une apparence plus fine */
+    text-decoration: none;
+    display: block;
+    font-size: 0.85em; /* Taille de police réduite */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Couleur de fond douce au survol */
+    color: #000; /* Couleur du texte au survol */
+    border-left: 2px solid #000; /* Ligne de couleur à gauche pour indiquer le survol */
+}
+
+/* Ajout d'un effet de transition pour l'apparition de la dropdown */
+.dropdown:hover .dropdown-content {
+    animation: slideIn 0.3s forwards; /* Animation d'apparition */
+}
+
+/* Animation pour la dropdown */
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

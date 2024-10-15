@@ -1,0 +1,316 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Barre de navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right .btn {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-right .btn:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+/* Conteneur de reporting */ 
+.reporting-container {
+    width: 95%; /* Utiliser 95% de la largeur de l'écran */
+    max-width: 1500px; /* Garder une largeur maximale */
+    margin: 20px auto; /* Centre le conteneur avec un espace en haut et en bas */
+    padding: 20px; /* Espace intérieur */
+    background: white; /* Couleur de fond */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre portée */
+}
+
+h2 {
+    text-align: center;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+/* Conteneur de filtrage */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px; /* Un léger padding pour séparer le contenu des bords */
+    background-color: transparent; /* Pas de fond, pour un aspect épuré */
+}
+
+/* Style pour les éléments de sélection et les boutons */
+.filter-container select,
+.filter-container button {
+    padding: 8px 10px; /* Espace intérieur pour le confort */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    border-radius: 4px; /* Coins légèrement arrondis */
+    font-size: 0.9em; /* Taille de police légère */
+    background-color: #fff; /* Fond blanc pour les boutons et sélecteurs */
+    color: #333; /* Couleur du texte */
+    cursor: pointer; /* Curseur pointer pour l'interaction */
+    transition: border-color 0.3s ease; /* Transition douce pour les interactions */
+}
+
+/* Changement de style au focus ou au survol */
+.filter-container select:focus,
+.filter-container button:hover {
+    border-color: #666; /* Bordure plus foncée au focus ou au survol */
+}
+
+/* Style des boutons */
+.filter-container button {
+    background-color: #000; /* Noir intense pour les boutons */
+    color: white; /* Texte en blanc pour le contraste */
+    margin-left: 10px; /* Espacement entre les boutons et les sélecteurs */
+    transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+}
+
+.filter-container button:hover {
+    background-color: #444; /* Un noir légèrement plus clair pour l'effet hover */
+}
+
+.year-select {
+    flex: 1;
+}
+
+.month-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.month-btn {
+    background-color: #000; /* Noir intense pour le bouton */
+    color: white;
+    padding: 6px 10px; /* Ajustement de la taille du bouton */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin: 5px;
+    flex: 1; /* Prend toute la largeur disponible pour être de la même longueur */
+    text-align: center; /* Centrer le texte dans le bouton */
+    transition: background-color 0.3s ease;
+}
+
+.month-btn:hover {
+    background-color: #444; /* Un noir légèrement plus clair pour l'effet hover */
+}
+
+/* Tableau de Reporting */
+.reporting-table {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Réduit la hauteur des lignes internes du tableau */
+tbody tr:not(.total-row) td {
+    padding: 1px; /* Réduit le padding uniquement pour les lignes de contenu */
+    border: 1px solid #ddd; /* Conserve les bordures */
+    text-align: center; /* Centre le texte */
+}
+
+/* Conserve le style des cellules d'en-tête */
+th {
+    padding: 8px; /* Garde le padding de l'en-tête inchangé */
+    background-color: #f0f0f2;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Conserve le style de la dernière ligne (totaux) */
+.total-row td {
+    padding: 10px; /* Garde le padding de la ligne des totaux inchangé */
+    border-top: 2px solid #333; /* Conserve la bordure plus épaisse pour la ligne des totaux */
+    border: 1px solid #ddd;
+    text-align: right; /* Aligne le texte à droite */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.settings img {
+    width: 25px;
+    cursor: pointer;
+}
+.selected-month {
+    background-color: #bdc3c7; /* Couleur verte pour indiquer la sélection */
+    color: white; /* Texte en blanc pour le contraste */
+}
+/* Styles pour la ligne des totaux dans le tableau */
+.total-row {
+    background-color: #f0f0f2; /* Couleur de fond pour la ligne de total */
+    font-weight: bold; /* Met en gras le texte */
+    text-align: right; /* Aligne le texte à droite */
+}
+
+.total-row td {
+    border-top: 2px solid #333; /* Ajoute une bordure en haut pour démarquer la ligne */
+}
+
+.total-row td:first-child {
+    text-align: left; /* Aligne le premier élément à gauche */
+}
+
+.total-row .total-label {
+    text-align: left; /* Aligne le label à gauche */
+}
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Cache le contenu par défaut */
+    position: absolute;
+    background-color: white;
+    min-width: 75px; /* Largeur légèrement augmentée pour plus de classe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+    border-radius: 4px; /* Coins arrondis */
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
+    opacity: 0; /* Début transparent */
+    visibility: hidden; /* Invisible au départ */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le contenu au survol */
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Rendre visible */
+}
+
+.dropdown-content a {
+    color: #333; /* Couleur du texte */
+    padding: 5px 8px; /* Espacement délicat pour une apparence plus fine */
+    text-decoration: none;
+    display: block;
+    font-size: 0.85em; /* Taille de police réduite */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Couleur de fond douce au survol */
+    color: #000; /* Couleur du texte au survol */
+    border-left: 2px solid #000; /* Ligne de couleur à gauche pour indiquer le survol */
+}
+
+/* Ajout d'un effet de transition pour l'apparition de la dropdown */
+.dropdown:hover .dropdown-content {
+    animation: slideIn 0.3s forwards; /* Animation d'apparition */
+}
+
+/* Animation pour la dropdown */
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Styles de la pop-up */
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Reste à l'écran */
+    z-index: 1; /* Au-dessus de tout le contenu */
+    left: 0;
+    top: 0;
+    width: 100%; /* Plein écran */
+    height: 100%; /* Plein écran */
+    overflow: auto; /* Ajoute un défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.4); /* Fond sombre */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Centre la pop-up */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur de la pop-up */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour les boutons des mois */
+.month-btn {
+    background: none; /* Pas de fond */
+    border: none; /* Pas de bordure */
+    color: #000; /* Couleur du texte noir */
+    font-size: 16px; /* Taille du texte */
+    cursor: pointer; /* Curseur pointer pour l'interaction */
+    padding: 10px; /* Ajout d'un peu de padding pour le confort de clic */
+    outline: none; /* Pas de contour ni de surbrillance au focus */
+    transition: color 0.3s ease; /* Transition douce de la couleur */
+}
+
+/* Au survol, focus et clic, aucune modification visuelle */
+.month-btn:hover,
+.month-btn:focus,
+.month-btn:active {
+    color: #000; /* Garder le texte noir */
+    background: none; /* Pas d'arrière-plan */
+    border: none; /* Pas de bordure */
+    box-shadow: none; /* Aucun effet d'ombre */
+    outline: none; /* Aucune surbrillance */
+}

@@ -1,0 +1,260 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right .btn {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-right .btn:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.settings img {
+    width: 25px;
+    cursor: pointer;
+}
+
+/* Card pour le formulaire */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 600px; /* Limite la largeur de la card */
+    margin: 0 auto 40px auto; /* Centre le formulaire */
+}
+
+/* Section de saisie des achats */
+.purchase-section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #2C3E50;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px; /* Ajoute un espace entre les inputs */
+}
+
+.form-group {
+    flex: 1;
+    min-width: 45%; /* Ajuste la largeur des champs du formulaire */
+}
+
+label {
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 0.85em;
+}
+
+input:disabled {
+    background-color: #e9ecef;
+}
+
+/* Boutons */
+button {
+    background-color: #000; /* Noir intense pour le bouton */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto; /* Centre le bouton Ajouter Achat */
+}
+
+.annuler-btn {
+    background-color: #222; /* Noir plus intense pour le bouton d'annulation */
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #444; /* Un noir légèrement plus clair pour l'effet hover */
+}
+
+.annuler-btn:hover {
+    background-color: #000; /* Noir pour le bouton d'annulation au survol */
+}
+
+/* Historique des achats */
+.historique-section {
+    margin: 40px auto;
+    max-width: 95%;
+}
+
+h2 {
+    text-align: left; /* Alignement à gauche */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #2C3E50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px; /* Coins arrondis pour le tableau */
+    overflow: hidden; /* Masquer les débordements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce autour du tableau */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+th {
+    background-color: #f0f0f2;
+    font-weight: bold;
+}
+
+/* Alternance des couleurs de ligne dans le tableau */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* Statuts d'expédition et de paiement */
+td[data-statut="non_recu"] {
+    color: #e74c3c;
+}
+
+td[data-statut="en_cours"] {
+    color: #f39c12;
+}
+
+td[data-statut="recu"] {
+    color: #2ecc71;
+}
+
+/* Actions de suppression */
+td .supprimer {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.supprimer:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Cache le contenu par défaut */
+    position: absolute;
+    background-color: white;
+    min-width: 75px; /* Largeur légèrement augmentée pour plus de classe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+    border-radius: 4px; /* Coins arrondis */
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
+    opacity: 0; /* Début transparent */
+    visibility: hidden; /* Invisible au départ */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Affiche le contenu au survol */
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Rendre visible */
+}
+
+.dropdown-content a {
+    color: #333; /* Couleur du texte */
+    padding: 5px 8px; /* Espacement délicat pour une apparence plus fine */
+    text-decoration: none;
+    display: block;
+    font-size: 0.85em; /* Taille de police réduite */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Couleur de fond douce au survol */
+    color: #000; /* Couleur du texte au survol */
+    border-left: 2px solid #000; /* Ligne de couleur à gauche pour indiquer le survol */
+}
+
+/* Ajout d'un effet de transition pour l'apparition de la dropdown */
+.dropdown:hover .dropdown-content {
+    animation: slideIn 0.3s forwards; /* Animation d'apparition */
+}
+
+/* Animation pour la dropdown */
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

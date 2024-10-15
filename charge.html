@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charges - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="charge.css">
+</head>
+
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Gestion des Charges</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+                   <!-- Lien Reporting avec liste déroulante -->
+        <div class="dropdown">
+            <a href="reporting.html" class="btn">Reporting</a>
+            <div class="dropdown-content">
+                <a href="reporting.html">Mensuel</a>
+                <a href="reportinga.html">Annuel</a>
+            </div>
+        </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section pour ajouter une charge (achat de cartons), CMUP et Stock de Cartons -->
+    <section class="charge-section">
+        <div class="header-container">
+            <h2>Infos sur le Stock de Cartons</h2>
+        </div>
+
+        <!-- Grande carte englobante -->
+        <div class="card card-container">
+            <div class="form-cmup-container flex-container">
+                <!-- Formulaire pour ajouter une charge -->
+                <div class="card card-form">
+                    <h3>Ajouter un Achat de Cartons</h3>
+                    <form id="charge-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombreCartons">Nombre de cartons</label>
+                                <input type="number" id="nombreCartons" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prixHT">Prix HT</label>
+                                <input type="number" id="prixHT" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prixTTC">Prix TTC</label>
+                                <input type="text" id="prixTTC" disabled>
+                            </div>
+                        </div>
+                        <button type="button" id="ajouter-charge" class="btn-submit">Ajouter Charge</button>
+                    </form>
+                </div>
+
+                <!-- Card pour afficher le CMUP -->
+                <div class="card card-cmup">
+                    <h3>CMUP Actuel</h3>
+                    <div class="cmup-value-container">
+                        <span id="cmup-value" class="cmup-value">0.00 €</span>
+                    </div>
+                </div>
+
+                <!-- Card pour afficher le stock de cartons -->
+                <div class="card stock-cartons-card">
+                    <h3>Stock de Cartons</h3>
+                    <p>Total de cartons achetés : <span id="total-cartons-value">0</span></p>
+                    <p>Cartons utilisés : <span id="cartons-utilises-value">0</span></p>
+                    <p>Cartons restants : <span id="stock-cartons-value">0</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historique des achats de cartons -->
+    <section class="historique-section">
+        <div class="header-container">
+            <h2>Historique des Achats de Cartons</h2>
+        </div>
+        <table id="historique-charges">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Nombre de Cartons</th>
+                    <th>Prix HT</th>
+                    <th>Prix TTC</th>
+                    <th>Date</th>
+                    <th>Supprimer</th> <!-- Colonne pour la suppression -->
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="charge.js"></script>
+</body>
+
+</html>

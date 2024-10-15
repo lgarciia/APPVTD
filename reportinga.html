@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Annuel - SP</title>
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="stylesheet" href="reportinga.css"> <!-- Lien vers le fichier CSS -->
+    <style>
+     
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="nav-container">
+        <div class="logo">Reporting Activité Annuel</div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="btn">Accueil</a>
+            <a href="achat.html" class="btn">Achat</a>
+            <a href="stock.html" class="btn">Stock</a>
+            <a href="vente.html" class="btn">Vente</a>
+            <a href="facturation.html" class="btn">Facturation</a>
+            <a href="charge.html" class="btn">Charge</a>
+            <a href="comptabilite.html" class="btn">Comptabilité</a>
+            <div class="dropdown">
+                <a href="reporting.html" class="btn">Reporting</a>
+                <div class="dropdown-content">
+                    <a href="reporting.html">Mensuel</a>
+                    <a href="reportinga.html">Annuel</a>
+                </div>
+            </div>
+            <div class="settings">
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="reporting-container">
+        <h2>Reporting Annuel</h2>
+
+        <div class="filter-container">
+            <div class="year-select">
+                <label for="year">Sélectionnez l'année:</label>
+                <select id="year">
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tableau de Reporting -->
+        <section class="reporting-table">
+            <h3>Données de Reporting <span id="save-pdf" style="cursor: pointer;">💾</span></h3>
+            <table id="reporting-data">
+                <thead>
+                    <tr>
+                        <th>Mois</th>
+                        <th>Prix d'Achat Total</th>
+                        <th>Prix de Vente Total</th>
+                        <th>Marge (€)</th>
+                        <th>Marge (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les données seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Pop-up pour afficher les détails du mois -->
+    <div id="popup" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-popup">&times;</span>
+            <h2>Détails du mois</h2>
+            <table id="popup-table">
+                <thead>
+                    <tr>
+                        <th>Numéro de Stock</th>
+                        <th>Modèle</th>
+                        <th>Référence</th>
+                        <th>Acheteur</th>
+                        <th>Prix d'Achat</th>
+                        <th>Prix de Vente</th>
+                        <th>Marge (€)</th>
+                        <th>Marge (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les données du mois seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="reportinga.js"></script> <!-- Lien vers le fichier JavaScript -->
+</body>
+</html>
