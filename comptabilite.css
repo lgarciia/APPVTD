@@ -171,3 +171,10 @@ body {
     width: 25px;
     cursor: pointer;
 }
+
+body {
+    background-image: url('IMAGES/LD.jfif');
+    background-size: cover; /* Pour couvrir tout l'arrière-plan */
+    background-position: center; /* Pour centrer l'image */
+    background-repeat: no-repeat; /* Pour éviter que l'image se répète */
+}
