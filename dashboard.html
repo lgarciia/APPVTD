@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - SP</title>
-    <link rel="icon" type="IMAGES\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
+    <link rel="icon" type="image/png" href="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\FAVICON.jfif"> <!-- Chemin vers votre favicon -->
     <link rel="stylesheet" href="dashboard.css">
     
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script> <!-- SortableJS -->
@@ -23,6 +23,7 @@
     <!-- Barre de navigation -->
     <nav class="nav-container">
         <div class="logo">Dashboard</div>
+        <span class="help-icon" id="helpIcon" title="Voir le guide d'utilisation">?</span>
         <div class="nav-right">
             <a href="dashboard.html" class="btn">Accueil</a>
             <a href="achat.html" class="btn">Achat</a>
@@ -43,10 +44,19 @@
 
             
             <div class="settings">
-                <a href="option.html"><img src="IMAGES\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
+                <a href="option.html"><img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\reg.png" alt="Réglages"></a> <!-- Lien ajouté ici -->
             </div>
         </div>
     </nav>
+
+  <!-- Modale pour l'aide -->
+  <div id="modalOverlay"></div>
+  <div id="helpModal">
+      <span class="modal-close" id="closeModal">&times;</span>
+      <img src="C:\Users\lucas\OneDrive\Bureau\CODE HTML\APP SNKRS\PROCESS.jpg" alt="Guide d'utilisation">
+  </div>
+
+
     <!-- Barre d'indicateurs -->
     <section class="indicators-bar">
         <div class="indicator">
