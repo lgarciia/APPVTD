@@ -411,3 +411,25 @@ tooltipContentLivraison.addEventListener('mouseleave', () => {
         }
     });
 });
+// Sélection des éléments
+const helpIcon = document.getElementById('helpIcon');
+const helpModal = document.getElementById('helpModal');
+const modalOverlay = document.getElementById('modalOverlay');
+const closeModal = document.getElementById('closeModal');
+
+// Ouvrir la modale
+helpIcon.addEventListener('click', () => {
+    helpModal.style.display = 'block';
+    modalOverlay.style.display = 'block';
+});
+
+// Fermer la modale
+closeModal.addEventListener('click', () => {
+    helpModal.style.display = 'none';
+    modalOverlay.style.display = 'none';
+});
+
+modalOverlay.addEventListener('click', () => {
+    helpModal.style.display = 'none';
+    modalOverlay.style.display = 'none';
+});
